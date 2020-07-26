@@ -31,5 +31,11 @@ public class WorkOrderApiController {
 	public void deleteOrder(@PathVariable long orderId) {
 		workOrderService.deleteOrder(orderId);
 	}
+	
+	@GetMapping("/orders/{orderId}")
+	@ResponseStatus(code = HttpStatus.NOT_FOUND)
+	public void getOders(@PathVariable long orderId) {
+	workOrderService.getOrder(orderId);
+}
 
 }
