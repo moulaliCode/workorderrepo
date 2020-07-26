@@ -73,5 +73,15 @@ public class OrderAPIControllerTest {
 
 		//verify(orderService).createOrder(any(Order.class));
 	}
+	
+	// Test case for validating OrderId from Service
+	@Test
+	public void getOrder_201() throws Exception {
+		final String orderId = UUID.randomUUID().toString();
+		when(orderService.getOrder(any(Order.class))).thenReturn(orderId);
+		mockMvc.perform(get(ADD_URI).andExpect(status().isOk())
+		        .andExpect(content().string("The Order exists.")));
+	}
+
 
 }
