@@ -40,4 +40,9 @@ public class WorkOrderService {
 		}
 		return optDBOrder.get();
 	}
+	
+	public Optional<Order> getOrder(final Long id) {
+		return this.orderRepository.findById(id);
+}
+
 }
